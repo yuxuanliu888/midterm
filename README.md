@@ -1,8 +1,15 @@
-// var mysound
-// function preload(){
-// soundFormats("mp3")
-//   mysound =loadSound("123.mp3")
-// }
+//CLIMBING A HILL
+
+//Press "SHIFT" to begin the music
+//Press "LEFT" and "RIGHT" Keys to control your small ball
+//If you climb to the higher part of the mountain, you "WIN"
+//If you slide to the lower part of the mountain, you "LOSE"
+//The gmae will be harder after you won a game
+var mysound
+ function preload(){
+ soundFormats("mp3")
+  mysound =loadSound("321.mp3")
+ }
 
 function setup() {
   createCanvas(400, 400);
@@ -30,11 +37,15 @@ var level = [1,2,3]
 var a=1
 var flash=30
 
-
-
+var back=220
+var t=0.5
 function draw() {
-  background(220,20);
-
+  
+  
+    
+  background(back,20);
+  
+  
   fill(135,20,cc)
   noStroke()
 
@@ -60,15 +71,15 @@ function draw() {
   //Vqiu=Vqiu*1 
  
 //if(y4>x4)
-  {}
+
   if (k<0){x4=x4*kbian1}
    if (k>0){x4=x4*kbian2}
  //  textSize(30)
  // text('Level ',150,40)
   
   if(x4<=0&&y1>y2){textSize(60);rect(0,0,400,400);fill(300, 300, 300);text('Win',150,210);bian=0;textSize(20);text('Click Enter To the Next Leval',70,250)
-                   
-       if(keyIsDown(ENTER)){x4=200,k=k+0.1,bian=random(-3,3),kbian1=kbian1*0.998,kbian2=kbian2*1.002,biana=biana-3,bianb=bianb+3} 
+                       
+       if(keyIsDown(ENTER)){x4=200,k=k+0.1,bian=random(-3,3),kbian1=kbian1*0.998,kbian2=kbian2*1.002,biana=biana-3,bianb=bianb+3,back=random(0,20)}  
                    
                   }//win
 
@@ -77,27 +88,32 @@ function draw() {
   if(x4<=0&&y1<y2){textSize(60);rect(0,0,400,400);fill(300, 300, 300);text('Lose',150,210);bian=0;textSize(20);text('Click Enter To the Next Leval',70,250)
         //Lose
                    
-       if(keyIsDown(ENTER)){x4=200,k=k+0.1,bian=random(-3,3),kbian1=kbian1*1.002,kbian2=kbian2*0.998,biana=biana*0.99,bianb=bianb*0.99} }
-    
+       if(keyIsDown(ENTER)){x4=200,k=k+0.001,bian=random(-3,3),biana=biana*0.99,bianb=bianb*0.99,back=random(200,300)} }
+  
   
   if(x4>=width&&y1>y2){textSize(60);rect(0,0,400,400);fill(300, 300, 300);text('Lose',150,210);bian=0;textSize(20);text('Click Enter To the Next Leval',70,250)
                    
-       if(keyIsDown(ENTER)){x4=200,k=k+0.1,bian=random(-3,3),kbian1=kbian1*1.002,kbian2=kbian2*0.998,biana=biana*0.99,bianb=bianb*0.99} }
-  //Lose
+       if(keyIsDown(ENTER)){x4=200,k=k+0.001,bian=random(-3,3),biana=biana*0.999,bianb=bianb*0.999,back=random(150,300)}   }
+  //Lose111
   
   
   if(x4>=width&&y1<y2){textSize(60);rect(0,0,400,400);fill(300, 300, 300);text('Win',150,210);bian=0;textSize(20);text('Click Enter To the Next Leval',70,250)
                    
-       if(keyIsDown(ENTER)){x4=200,k=k+0.1,bian=random(-3,3),kbian1=kbian1*0.998,kbian2=kbian2*1.002,biana=biana-3,bianb=bianb+3} }
+       if(keyIsDown(ENTER)){x4=200,k=k+0.1,bian=random(-3,3),kbian1=kbian1*0.998,kbian2=kbian2*0.999,biana=biana-3,bianb=bianb+3,back=random(0,30)} }
 //Win
   
   
   if (keyIsDown(LEFT_ARROW)){
-    x4=x4-Vqiu
+    x4=x4-Vqiu 
 
      } 
    if (keyIsDown(RIGHT_ARROW)){
      x4=x4+Vqiu
 
      } 
+ // function keyPressed(SHIFT) 
+ if (keyIsDown(SHIFT)){mysound.play()}
+  
+  
+  
 }
